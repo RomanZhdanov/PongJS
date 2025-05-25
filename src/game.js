@@ -17,6 +17,7 @@ export default class Game {
     this.paddle = new Paddle(this);
     this.ball = new Ball(this);
     this.gameObjects = [];
+    this.lives = 3;
     new Input(this);
   }
 
@@ -30,9 +31,11 @@ export default class Game {
   }
 
   update(delta) {
+    if (this.lives === 0) this.gameState = GAMESTATE.GAMEOVER;
     if (
       this.gameState === GAMESTATE.PAUSED ||
-      this.gameState === GAMESTATE.MENU
+      this.gameState === GAMESTATE.MENU ||
+      this.gameState === GAMESTATE.GAMEOVER
     )
       return;
 
@@ -70,6 +73,16 @@ export default class Game {
         this.gameWidth / 2,
         this.gameHeight / 2,
       );
+    }
+    if (this.gameState === GAMESTATE.GAMEOVER) {
+      ctx.rect(0, 0, this.gameWidth, this.gameHeight);
+      ctx.fillStyle = "rgba(0, 0, 0, 1)";
+      ctx.fill();
+
+      ctx.font = "30px Arial";
+      ctx.fillStyle = "white";
+      ctx.textAlign = "center";
+      ctx.fillText("GAME OVER", this.gameWidth / 2, this.gameHeight / 2);
     }
   }
 
