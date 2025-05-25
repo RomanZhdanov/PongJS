@@ -1,5 +1,4 @@
-import Paddle from "/src/paddle";
-import Input from "/src/input";
+import Game from "/src/game";
 
 const GAME_WIDTH = 800;
 const GAME_HEIGHT = 600;
@@ -7,8 +6,8 @@ const GAME_HEIGHT = 600;
 const canvas = document.getElementById("gameScreen");
 const ctx = canvas.getContext("2d");
 
-const paddle = new Paddle(GAME_WIDTH, GAME_HEIGHT);
-const input = new Input(paddle);
+const game = new Game(GAME_WIDTH, GAME_HEIGHT);
+game.start();
 
 let lastTime = 0;
 
@@ -17,10 +16,10 @@ function gameLoop(timestamp) {
   lastTime = timestamp;
 
   ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
-  paddle.update(delta);
-  paddle.draw(ctx);
 
+  game.update(delta);
+  game.draw(ctx);
   requestAnimationFrame(gameLoop);
 }
 
-gameLoop();
+requestAnimationFrame(gameLoop);
