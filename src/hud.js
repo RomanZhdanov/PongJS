@@ -15,5 +15,6 @@ export default class Hud {
     ctx.textAlign = "start";
     ctx.fillText(`Lives: ${this.game.lives}`, 10, 15);
     ctx.fillText(`Score: ${this.game.score}`, 100, 15);
+    ctx.fillText(`Level: ${this.game.currentLevel + 1}`, 200, 15);
   }
 }
