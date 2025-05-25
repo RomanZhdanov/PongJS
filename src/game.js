@@ -22,6 +22,7 @@ export default class Game {
     this.gameObjects = [];
     this.bricks = [];
     this.lives = 3;
+    this.score = 0;
 
     this.levels = [level1, level2];
     this.currentLevel = 0;

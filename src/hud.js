@@ -13,6 +13,7 @@ export default class Hud {
     ctx.font = "15px Arial";
     ctx.fillStyle = "white";
     ctx.textAlign = "start";
-    ctx.fillText(`Lives: ${this.game.lives}`, 15, 15);
+    ctx.fillText(`Lives: ${this.game.lives}`, 10, 15);
+    ctx.fillText(`Score: ${this.game.score}`, 100, 15);
   }
 }

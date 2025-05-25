@@ -10,7 +10,7 @@ export function buildLevel(game, level1) {
           x: 80 * brickIndex,
           y: 75 + 24 * rowIndex,
         };
-        bricks.push(new Brick(game, position));
+        bricks.push(new Brick(game, position, 100));
       }
     });
   });
