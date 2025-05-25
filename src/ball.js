@@ -39,7 +39,7 @@ export default class Ball {
       this.speed.x = -this.speed.x;
     }
 
-    if (this.position.y < 0) {
+    if (this.position.y < this.game.hud.height) {
       this.speed.y = -this.speed.y;
     }
 

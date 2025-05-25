@@ -1,6 +1,7 @@
 import Paddle from "/src/paddle";
 import Ball from "/src/ball";
 import Input from "/src/input";
+import Hud from "/src/hud";
 import { buildLevel, level1, level2 } from "/src/levels";
 
 const GAMESTATE = {
@@ -17,6 +18,7 @@ export default class Game {
     this.gameState = GAMESTATE.MENU;
     this.paddle = new Paddle(this);
     this.ball = new Ball(this);
+    this.hud = new Hud(this);
     this.gameObjects = [];
     this.bricks = [];
     this.lives = 3;
@@ -37,7 +39,7 @@ export default class Game {
     const level = this.levels[this.currentLevel];
     this.bricks = buildLevel(this, level);
     this.ball.reset();
-    this.gameObjects = [this.paddle, this.ball];
+    this.gameObjects = [this.paddle, this.ball, this.hud];
 
     this.gameState = GAMESTATE.RUNNING;
   }
