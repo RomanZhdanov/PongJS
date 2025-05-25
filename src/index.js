@@ -7,7 +7,7 @@ const canvas = document.getElementById("gameScreen");
 const ctx = canvas.getContext("2d");
 
 const game = new Game(GAME_WIDTH, GAME_HEIGHT);
-game.start();
+// game.start();
 
 let lastTime = 0;
 

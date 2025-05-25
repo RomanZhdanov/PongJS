@@ -8,8 +8,11 @@ export default class InputHandler {
         case "ArrowRight":
           game.paddle.moveRight();
           break;
-        case "Space":
+        case "Escape":
           game.togglePause();
+          break;
+        case "Space":
+          game.start();
           break;
       }
     });
