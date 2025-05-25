@@ -22,6 +22,10 @@ export default class Game {
 
   update(delta) {
     this.gameObjects.forEach((object) => object.update(delta));
+
+    this.gameObjects = this.gameObjects.filter(
+      (object) => !object.markedForDeletion,
+    );
   }
 
   draw(ctx) {
