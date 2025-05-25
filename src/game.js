@@ -1,5 +1,6 @@
 import Paddle from "/src/paddle";
 import Ball from "/src/ball";
+import Brick from "/src/brick";
 import Input from "/src/input";
 
 export default class Game {
@@ -11,8 +12,13 @@ export default class Game {
   start() {
     this.paddle = new Paddle(this);
     this.ball = new Ball(this);
+    const bricks = [];
 
-    this.gameObjects = [this.paddle, this.ball];
+    for (let i = 0; i < 15; i++) {
+      bricks.push(new Brick(this, { x: i * 52, y: 30 }));
+    }
+
+    this.gameObjects = [this.paddle, this.ball, ...bricks];
 
     new Input(this.paddle);
   }
