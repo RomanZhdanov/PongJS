@@ -2,6 +2,7 @@ export default class Ball {
   constructor(game) {
     this.gameWidth = game.gameWidth;
     this.gameHeight = game.gameHeight;
+    this.game = game;
     this.image = document.getElementById("img_ball");
     this.speed = {
       x: 2,
@@ -34,6 +35,20 @@ export default class Ball {
 
     if (this.position.y + this.size > this.gameHeight || this.position.y < 0) {
       this.speed.y = -this.speed.y;
+    }
+
+    const leftSideOfPaddle = this.game.paddle.position.x;
+    const rightSideOfPaddle =
+      this.game.paddle.position.x + this.game.paddle.width;
+    const bottomOfBall = this.position.y + this.size;
+    const topOfPaddle = this.game.paddle.position.y;
+    if (
+      bottomOfBall >= topOfPaddle &&
+      this.position.x >= leftSideOfPaddle &&
+      this.position.x <= rightSideOfPaddle
+    ) {
+      this.speed.y = -this.speed.y;
+      this.position.y = this.game.paddle.position.y - this.size;
     }
   }
 }
