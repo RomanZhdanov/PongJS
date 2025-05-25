@@ -52,5 +52,7 @@ export default class Ball {
       this.speed.y = -this.speed.y;
       this.position.y = this.game.paddle.position.y - this.size;
     }
+
+    console.log(this.speed);
   }
 }

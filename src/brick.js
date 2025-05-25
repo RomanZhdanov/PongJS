@@ -13,8 +13,13 @@ export default class Brick {
 
   update(delta) {
     if (detectCollision(this.game.ball, this)) {
-      this.game.ball.speed.x = this.game.ball.speed.x + 0.1;
-      this.game.ball.speed.y = -this.game.ball.speed.y;
+      this.game.ball.speed.x =
+        Math.sign(this.game.ball.speed.x) *
+        (Math.abs(this.game.ball.speed.x) + 0.2);
+      this.game.ball.speed.y = -(
+        Math.sign(this.game.ball.speed.y) *
+        (Math.abs(this.game.ball.speed.y) + 0.2)
+      );
       this.game.score += this.points;
       this.markedForDeletion = true;
     }
