@@ -68,6 +68,8 @@ export default class Game {
   }
 
   draw(ctx) {
+    ctx.reset();
+
     [...this.gameObjects, ...this.bricks].forEach((object) => object.draw(ctx));
 
     if (this.gameState === GAMESTATE.PAUSED) {
